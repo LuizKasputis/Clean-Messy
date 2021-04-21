@@ -47,6 +47,40 @@ def make_dataset_50x50x2():
 
             image_treatment = Image.open(path+image).convert('LA').resize((image_size, image_size), Image.ANTIALIAS)
             image_treatment.save(path_processed+image, 'PNG')
+            
+def make_dataset_224x224x3():
+    
+    image_size = 224
+    
+    # Train GrayScale with new size 224x224x3
+    
+    for category in category_names:
+        path = train_data+category
+        path_processed = process_train+category
+
+        for image in os.listdir(path):
+
+            image_treatment = Image.open(path+image).resize((image_size, image_size), Image.ANTIALIAS)
+            image_treatment.save(path_processed+image, 'PNG')
+    
+    # Test GrayScale with new size 50x50
+    
+    for image in os.listdir(test_data):
+
+        image_treatment = Image.open(test_data+image).resize((image_size, image_size), Image.ANTIALIAS)
+        image_treatment.save(process_test+image, 'PNG')
+    
+    # Val GrayScale with new size 50x50
+    
+    for category in category_names:
+    
+        path = val_data+category
+        path_processed = process_val+category
+
+        for image in os.listdir(path):
+
+            image_treatment = Image.open(path+image).resize((image_size, image_size), Image.ANTIALIAS)
+            image_treatment.save(path_processed+image, 'PNG')
 
             
 def dataset_train():
@@ -88,7 +122,7 @@ def dataset_val():
 
         for image in os.listdir(path_processed):
 
-            image_treatment = Image.open(path_processed+image).resize((50,50))
+            image_treatment = Image.open(path_processed+image)
 
             if category == 'messy/' :
                 messy = np.asarray(image_treatment) /255 # bit format
