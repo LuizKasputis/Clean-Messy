@@ -2,8 +2,26 @@ clean_room
 ==============================
 
 Data science project that  predicts when the room it's clean or messy
-
 Project Organization
+
+Results
+------------
+In this project the main object it's to understaing better the library Keras and usage kaggle dataset. So in this project I started compare both convolution network and usage some data science technices. To understand better I recommend to run the notebooks first and see how they are working
+
+Usage
+------------
+
+To usage the model, first is need to choose the image on external data. In file MakeFile you need rename the IMAGE_FILE to call the image you want select.
+
+``` sh
+make predict_vgg16
+make predict_cnn_simple
+```
+
+The result is generated where you called make
+
+![Logging](./docs/example_running.png "Logging")
+
 ------------
 
     ├── LICENSE
@@ -15,7 +33,7 @@ Project Organization
     │   ├── processed      <- The final, canonical data sets for modeling.
     │   └── raw            <- The original, immutable data dump.
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
+    ├── docs               <- Some useful images
     │
     ├── models             <- Trained and serialized models, model predictions, or model summaries
     │
@@ -23,20 +41,13 @@ Project Organization
     │                         the creator's initials, and a short `-` delimited description, e.g.
     │                         `1.0-jqp-initial-data-exploration`.
     │
-    ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-    │
-    ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-    │   └── figures        <- Generated graphics and figures to be used in reporting
-    │
-    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-    │                         generated with `pip freeze > requirements.txt`
     │
     ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
     │   │
     │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
+    │   │   └── dataset.py
     │   │
     │   ├── features       <- Scripts to turn raw data into features for modeling
     │   │   └── build_features.py
@@ -48,10 +59,8 @@ Project Organization
     │   │
     │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     │       └── visualize.py
-    │
-    └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
-
-
+    ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
+    │ generated with `pip freeze > requirements.txt`
 --------
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
